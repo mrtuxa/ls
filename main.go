@@ -9,21 +9,7 @@ import (
 )
 
 func main() {
-	switch os := runtime.GOOS; os {
-	case "darwin":
-		fmt.Println("OS X.")
-		listDir()
-	case "linux":
-		fmt.Println("Linux.")
-		listDir()
-	case "windows":
-		log.Fatal("\nWindows is currently not supported")
-	default:
-		// freebsd, openbsd,
-		// plan9, windows...
-		fmt.Printf("%s.\n", os)
-		listDir()
-	}
+	Module()
 }
 
 func getDirectory() string {
@@ -45,5 +31,23 @@ func listDir() {
 
 		fmt.Println(string(colorRed), f.Name())
 		fmt.Println(string(colorReset))
+	}
+}
+
+func Module() {
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+		listDir()
+	case "linux":
+		fmt.Println("Linux.")
+		listDir()
+	case "windows":
+		log.Fatal("\nWindows is currently not supported")
+	default:
+		// freebsd, openbsd,
+		// plan9, windows...
+		fmt.Printf("%s.\n", os)
+		listDir()
 	}
 }
