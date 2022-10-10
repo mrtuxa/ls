@@ -46,7 +46,7 @@ func Module() {
 		log.Fatal("\nWindows is currently not supported")
 	default:
 		// freebsd, openbsd,
-		// plan9, windows...
+		// plan9...
 		fmt.Printf("%s.\n", os)
 		listDir()
 	}
